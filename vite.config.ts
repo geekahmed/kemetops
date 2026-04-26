@@ -6,13 +6,6 @@
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1];
-const isGitHubActionsBuild = process.env.GITHUB_ACTIONS === "true";
-const isUserOrOrgSite = repositoryName?.endsWith(".github.io");
-
-const pagesBasePath =
-  isGitHubActionsBuild && repositoryName && !isUserOrOrgSite ? `/${repositoryName}/` : "/";
-
 export default defineConfig({
   cloudflare: false,
   tanstackStart: {
@@ -22,6 +15,8 @@ export default defineConfig({
     },
   },
   vite: {
-    base: pagesBasePath,
+    // Custom domain on GitHub Pages should always serve from root.
+    // Keep "/" for local dev and CI builds to avoid "/<repo>/" asset URLs.
+    base: "/",
   },
 });
