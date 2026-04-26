@@ -44,6 +44,9 @@ jobs:
       - name: Disable Jekyll
         run: touch dist/client/.nojekyll
 
+      - name: Add CNAME
+        run: echo "kemetops.com" > dist/client/CNAME
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
