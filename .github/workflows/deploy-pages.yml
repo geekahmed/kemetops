@@ -33,8 +33,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Add SPA fallback
-        run: cp dist/client/index.html dist/client/404.html
+      - name: Add SPA fallback when index exists
+        run: |
+          if [ -f dist/client/index.html ]; then
+            cp dist/client/index.html dist/client/404.html
+          else
+            echo "Skipping SPA fallback: dist/client/index.html not found."
+          fi
 
       - name: Disable Jekyll
         run: touch dist/client/.nojekyll
