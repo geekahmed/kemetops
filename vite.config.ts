@@ -14,6 +14,13 @@ const pagesBasePath =
   isGitHubActionsBuild && repositoryName && !isUserOrOrgSite ? `/${repositoryName}/` : "/";
 
 export default defineConfig({
+  cloudflare: false,
+  tanstackStart: {
+    prerender: {
+      enabled: true,
+      crawlLinks: true,
+    },
+  },
   vite: {
     base: pagesBasePath,
   },
