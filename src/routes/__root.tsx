@@ -53,6 +53,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if (window.location.hostname === 'kemetops.com') { window.location.replace('https://www.kemetops.com' + window.location.pathname + window.location.search + window.location.hash); }",
+          }}
+        />
         <HeadContent />
       </head>
       <body>

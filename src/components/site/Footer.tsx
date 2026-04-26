@@ -24,12 +24,18 @@ export function Footer() {
 
           <div className="md:text-right">
             <p className="text-sm text-muted-foreground">Based in Egypt · kemetops.com</p>
+            <a
+              href="mailto:ahmed.moustafa@kemetops.com"
+              className="mt-2 inline-block text-sm text-muted-foreground hover:text-gold transition"
+            >
+              ahmed.moustafa@kemetops.com
+            </a>
           </div>
         </div>
 
         <div className="gold-divider mt-12 mb-6 opacity-40" />
         <p className="text-xs text-muted-foreground text-center">
-          © 2025 KemetOps. All rights reserved.
+          © 2026 KemetOps. All rights reserved.
         </p>
       </div>
     </footer>
